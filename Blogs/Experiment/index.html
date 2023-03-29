@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/ec2ebb3023.js" crossorigin="anonymous"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="global.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+  <title>Add a post</title>
+</head>
+
+<body>
+  <!-- Site Heading -->
+  <section id="heading">
+    <div class="site_heading">
+      <h6 class="text-center">Add New Post</h6>
+      <button id="post_submit" class="btn btn-secondary" type="submit">Publish</button>
+    </div>
+  </section>
+  <!---->
+  <!-- Tabs Section -->
+  <section id="edit_tabs" class="edit_tabs">
+    <ul class="post_tabs">
+      <li class="tabS" data-tab-target="#post_info">
+        <div class="tabImg"><i class="far fa-edit"></i></div>
+        <div class="tabHeading">Body</div>
+      </li>
+      <li class="tabS" data-tab-target="#post_meta">
+        <div class="tabImg"><i class="far fa-clipboard"></i></div>
+        <div class="tabHeading">Meta Data</div>
+      </li>
+      <li class="tabS" data-tab-target="#post_pics">
+        <div class="tabImg"><i class="fas fa-photo-video"></i></div>
+        <div class="tabHeading">Pictures</div>
+      </li>
+      <li class="tabS" data-tab-target="#post_reviews">
+        <div class="tabImg"><i class="fab fa-rev"></i></div>
+        <div class="tabHeading">Reviews</div>
+      </li>
+    </ul>
+  </section>
+  <!---->
+  <!-- Tabs Conntent For Respective Tabs Above -->
+  <div class="tabs_content">
+    <!-- First Tab  —> post INFORMATION -->
+    <div id="post_info" data-tab-content class="container-fluid active ">
+      <!-- Inputs for postTitle -->
+      <!-- post Name || Title -->
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="input-field">
+            <i class="fas fa-text-height"></i>
+            <input type="text" name="post_title" id="post_title" placeholder="Post Title" />
+          </div>
+        </div>
+        <!-- post Sub — Title -->
+        <div class="form-group col-md-6">
+          <div class="input-field">
+            <i class="fas fa-award"></i>
+            <input type="text" name="post_subTitle" id="post_subTitle" placeholder="Sub - Title" />
+          </div>
+        </div>
+      </div>
+      <!-- Inputs for Categories And Subcategories -->
+      <div class="form-row">
+        <!-- post Categories -->
+        <div class="form-group col-md-6">
+          <div class="input-field">
+            <i class="fab fa-slack"></i>
+            <input type="text" name="post_categorie" id="post_categorie" placeholder="Categorie" />
+          </div>
+        </div>
+        <!-- post Sub Categories -->
+        <div class="form-group col-md-6">
+          <div class="input-field">
+            <i class="fab fa-slack-hash"></i>
+            <input type="text" name="post_subCategory" id="post_subCategory" placeholder="Sub - Categorie" />
+          </div>
+        </div>
+      </div>
+      <!--  Editor Text Area For post Discription  -->
+      <div class="form-row">
+        <!-- Post Body  -->
+        <div class="col-12">
+          <div class="input-field_textarea">
+            <label for="post_description">
+              <div>
+                <i class="fas fa-align-justify"></i>&nbsp; Body
+              </div>
+              <div class="text-right">
+                <button class="btn btn-dark" data-modal-target="#modal" type="submit">Add Media</button>
+              </div>
+            </label>
+            <div class="post_descriptionCkeditor">
+              <textarea name="post_body" id="post_body" class=""></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+      <div class="text-center p-1">
+        <!-- Add post Button -->
+        <a id="post_submit1" class="btn btn-primary text-center" data-tab-target="#post_meta" type="submit">Save</a>
+        <button class="btn btn-danger text-center" type="button">Discard</button>
+      </div>
+    </div>
+    
+    <!----->
+    <!-- SECOND TAB —> post Meta Data  -->
+    <div id="post_meta" data-tab-content class="container-fluid ">
+      <!-- Meta Tags -->
+      <h4>Meta Data</h4>
+      <!-- post Short Description -->
+      <div class="form-row">
+        <div class="col-12">
+          <div class="input-field_textarea">
+            <label for="post_shortDescription">
+              <div>
+                <i class="fab fa-acquisitions-incorporated"></i>&nbsp;
+                <small class="small">Short - Description</small>
+              </div>
+              <div class="text-right">
+                <button class="btn btn-dark" data-modal-target="#modal" type="submit">Add Media</button>
+              </div>
+            </label>
+            <div class="post_shortDescriptionCkeditor">
+              <textarea name="post_shortDescription" id="post_shortDescription" class=""></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <!-- Tags --->
+        <div class="form-group col-md-6">
+          <div class="input-field">
+            <i class="fas fa-tag"></i>
+            <input type="text" name="post_metaTags" id="post_metaTags" placeholder="Tags" />
+          </div>
+        </div>
+        <!-- Keywords --->
+        <div class="form-group col-md-6">
+          <div class="input-field">
+            <i class="fas fa-keyboard"></i>
+            <input type="text" name="post_keywords" id="post_keywords" placeholder="Key Words" />
+          </div>
+        </div>
+      </div>
+      <div class="text-center p-1">
+        <!-- Add post Button -->
+        <button id="post_submit2" class="btn btn-primary text-center" data-tab-target="#post_pics" type="button">Save</button>
+        <button class="btn btn-danger text-center" type="button">Discard</button>
+      </div>
+    </div>
+    <!---->
+    <!-- THIRD TAB  —> post Images -->
+    <div id="post_pics" data-tab-content class="container-fluid ">
+      <!-- Add Media Div only a Button that triggers a Pop up Asking for Images Upload -->
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Holy guacamole!</strong> You should replace all the images below.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="text-right">
+        <button class="btn btn-dark" data-modal-target="#modal" type="submit">Add Media</button>
+      </div>
+      <div class="container-fluid p-0">
+        <div class="mb-5">
+          <h3>Post Image</h3>
+          <div class="" id="post_image">
+            <label class="upload_image_label">
+              <input type="file" accept=".jpg,.jpeg,.png,.svg" enctype='multipart/form-data' name="post_img" id="" class="file_input" value="" />
+              <img class="img-fluid upload_image " src="./assets/post_img_preview.png" alt="" />
+              <a class="btn btn-light file_choose_btn" id="file_choose_btn">Choose Files</a>
+            </label>
+            <button class="btn btn-dark upload_btn" id="upload_btn" type="submit">Upload</button>
+            <!-- >
+              <img class="img-fluid post_image_preview" src="" alt="" />
+            -->
+          </div>
+        </div>
+        <h3>Post Gallery</h3>
+        <div class="post_gallery mb-5">
+          <div class="gallery_image">
+            <label class="upload_image_label">
+              <input type="file" name="post_gallery_img1" id="" accept=".jpg,.jpeg,.png,.svg" enctype='multipart/form-data' class="file_input" value="" />
+              <img class="img-fluid upload_image" src="./assets/coolness.png" alt="" />
+              <a class="btn btn-light file_choose_btn" id="file_choose_btn">Choose Files</a>
+            </label>
+            <button class="btn btn-dark upload_btn" id="upload_btn" type="submit">Upload</button>
+          </div>
+          <div class="gallery_image">
+            <label class="upload_image_label">
+              <input type="file" name="post_gallery_img2" id="" accept=".jpg,.jpeg,.png,.svg" enctype='multipart/form-data' class="file_input" value="" />
+              <img class="img-fluid upload_image" src="./assets/post_img_preview3.png" alt="" />
+              <a class="btn btn-light file_choose_btn" id="file_choose_btn">Choose Files</a>
+            </label>
+            <button class="btn btn-dark upload_btn" id="upload_btn" type="submit">Upload</button>
+          </div>
+          <div class="gallery_image">
+            <label class="upload_image_label">
+              <input type="file" name="post_gallery_img3" id="" accept=".jpg,.jpeg,.png,.svg" enctype='multipart/form-data' class="file_input" value="" />
+              <img class="img-fluid upload_image" src="./assets/Cooking.png" alt="" />
+              <a class="btn btn-light file_choose_btn" id="file_choose_btn">Choose Files</a>
+            </label>
+            <button class="btn btn-dark upload_btn" id="upload_btn" type="submit">Upload</button>
+          </div>
+          <div class="gallery_image">
+            <label class="upload_image_label">
+              <input type="file" name="" id="" accept=".jpg,.jpeg,.png,.svg" enctype='multipart/form-data' class="file_input" value="" />
+              <img class="img-fluid upload_image" src="./assets/post_img_preview4.png" alt="" />
+              <a class="btn btn-light file_choose_btn" id="file_choose_btn">Choose Files</a>
+            </label>
+            <button class="btn btn-dark upload_btn" id="upload_btn" type="submit">Upload</button>
+          </div>
+          <div class="gallery_image">
+            <label class="upload_image_label">
+              <input type="file" name="" id="" accept=".jpg,.jpeg,.png,.svg" enctype='multipart/form-data' class="file_input" value="" />
+              <img class="img-fluid upload_image" src="./assets/post_img_preview2.png" alt="" />
+              <a class="btn btn-light file_choose_btn" id="file_choose_btn">Choose Files</a>
+            </label>
+            <button class="btn btn-dark upload_btn" id="upload_btn" type="submit">Upload</button>
+          </div>
+          <div class="gallery_image">
+            <label class="upload_image_label">
+              <input type="file" name="" id="" accept=".jpg,.jpeg,.png,.svg" enctype='multipart/form-data' class="file_input" value="" />
+              <img class="img-fluid upload_image" src="./assets/post_img_preview1.png" alt="" />
+              <a class="btn btn-light file_choose_btn" id="file_choose_btn">Choose Files</a>
+            </label>
+            <button class="btn btn-dark upload_btn" id="upload_btn" type="submit">Upload</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!---->
+    <!-- FOURTH TAB —> post Reviews -->
+    <div id="post_reviews" data-tab-content class="container-fluid ">
+      <div class="container p-1">
+        <div id="ratingContainer" class="ratingContainer mb-3">
+        </div>
+        <div id="commentsContainer" class="commentsContainer mb-4">
+        </div>
+        <div id="commentsFormContainer" class="commentsFormContainer mb-3">
+          <div class="form-row">
+            <!-- Commenter Name -->
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" name="commenter_name" id="" placeholder="Name" />
+            </div>
+          </div>
+          <div class="form-row">
+            <!-- Commenter Name -->
+            <div class="input-field">
+              <i class="far fa-envelope"></i>
+              <input type="email" name="commenter_email" id="" placeholder="Email" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-12">
+              <div class="input-field_textarea">
+                <label for="comment_text" class="comment_label">
+                  <i class="fas fa-align-justify"></i>&nbsp; Comment Text
+                </label>
+                <textarea name="comment_text" id="comment_text" class="comment_text"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center p-1">
+          <!-- Add post Button -->
+          <button class="btn btn-primary text-center" type="button">Save</button>
+          <button class="btn btn-danger text-center" type="button">Discard</button>
+        </div>
+      </div>
+    </div>
+    <!---->
+  </div>
+  <!-- Pop up For Images -->
+  <section class="navBar">
+    <div class="moda" id="modal">
+      <div class="modal_header">
+        <div class="modal_title">
+          <h3> Upload Images </h3>
+          <hr>
+        </div>
+        <button data-close-button class="close_button">&times;</button>
+      </div>
+      <div class="modal_body">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="pills-upload-tab" data-toggle="pill" href="#pills-upload" role="tab" aria-controls="pills-upload" aria-selected="true">Upload </a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-gallery" role="tab" aria-controls="pills-gallery" aria-selected="false">Gallery</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-my_uploads" role="tab" aria-controls="pills-my_uploads" aria-selected="false">My Uploads</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-upload" role="tabpanel" aria-labelledby="pills-upload-tab">
+            <!-- File Uploading and Processing -->
+            <div class="container">
+              <div class="tabContainer">
+                <label class="upload_image_label">
+                  <input type="file" name="" id="" accept=".jpg,.jpeg,.png,.svg" enctype='multipart/form-data' class="file_input" value="" />
+                  <img class="img-fluid upload_image" src="./assets/Upload_file.png" alt="" />
+                  <a class="btn btn-light file_choose_btn" id="file_choose_btn">Choose Files</a>
+                </label>
+                <button class="btn btn-dark upload_btn" id="upload_btn" type="submit">Upload</button>
+              </div>
+            </div>
+          </div>
+          <!-- Second Tab —> Gallery --->
+          <div class="tab-pane fade" id="pills-gallery" role="tabpanel" aria-labelledby="pills-gallery-tab">
+            <div class="container-fluid p-1">
+              <div class="tab_gallery_search">
+                <input type="text" name="category_image_search" id="category_image_search" class="category_image_search" value="" placeholder="Category" />
+                <input type="text" name="image_search" id="image_search" class="image_search" value="" placeholder="Search..." />
+              </div>
+              <!-- Gallery Images Display -->
+              <div class="display_from_gallery" id="display_from_gallery">
+                <div class="imagesFrom_gallery">
+                  <img class="img-fluid img_gallery" src="assets/coolness.png" alt="" />
+                  <img class="img-fluid img_gallery" src="assets/Hamburger.png" alt="" />
+                  <img class="img-fluid img_gallery" src="assets/empty.png" alt="" />
+                  <img class="img-fluid img_gallery" src="assets/Gallery.png" alt="" />
+                  <img class="img-fluid img_gallery" src="assets/Cooking.png" alt="" />
+                  <img class="img-fluid img_gallery" src="assets/Upload_file.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="pills-my_uploads" role="tabpanel" aria-labelledby="pills-my_uploads-tab">
+            <div class="container-fluid p-1">
+              <div class="tab_gallery_search text-center">
+                <input type="text" name="image_search" id="image_search" class="image_search" value="" placeholder="Search..." />
+              </div>
+              <!-- User Uploads Images Display -->
+              <div class="display_from_gallery" id="display_from_gallery">
+                <div class="imagesFrom_gallery">
+                  <img class="img-fluid img_gallery" src="assets/coolness.png" alt="" />
+                  <img class="img-fluid img_gallery" src="assets/Hamburger.png" alt="" />
+                  <img class="img-fluid img_gallery" src="assets/empty.png" alt="" />
+                  <img class="img-fluid img_gallery" src="assets/Gallery.png" alt="" />
+                  <img class="img-fluid img_gallery" src="assets/Cooking.png" alt="" />
+                  <img class="img-fluid img_gallery" src="assets/Upload_file.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="overlay"></div>
+  </section>
+  <div class="overlay2" id="overlay2">
+    <div class="spinner-grow text-primary" role="status">
+      <span class="sr-only">Updating...</span>
+    </div>
+    <div class="spinner-grow text-secondary" role="status">
+      <span class="sr-only">Updating...</span>
+    </div>
+    <div class="spinner-grow text-success" role="status">
+      <span class="sr-only">Updating...</span>
+    </div>
+    <div class="spinner-grow text-danger" role="status">
+      <span class="sr-only">Updating...</span>
+    </div>
+    <div class="spinner-grow text-warning" role="status">
+      <span class="sr-only">Updating...</span>
+    </div>
+    <div class="spinner-grow text-info" role="status">
+      <span class="sr-only">Updating...</span>
+    </div>
+    <div class="spinner-grow text-light" role="status">
+      <span class="sr-only">Updating...</span>
+    </div>
+    <div class="spinner-grow text-dark" role="status">
+      <span class="sr-only">Updating...</span>
+    </div>
+    
+  </div>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <!--
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+    -->
+  <!-- Ck Editors -->
+  <!-- Full -->
+      <script src="//cdn.ckeditor.com/4.14.1/full/ckeditor.js"></script>
+    <!-- Basic 
+      <script src="//cdn.ckeditor.com/4.14.1/basic/ckeditor.js"></script>
+    -->
+  <script src="main.js"></script>
+</body>
+
+</html>
